@@ -207,8 +207,34 @@
   © 2026 MAHARASHTRA ABHYASIKA
 </footer>
 
+<div style="text-align:center; margin:30px 0;">
+  <button onclick="adminLogin()"
+          style="padding:10px 18px;
+                 background:#444;
+                 color:white;
+                 border:none;
+                 border-radius:6px;
+                 cursor:pointer;">
+    🔐 Admin Login
+  </button>
+</div>
+
+<script>
+  function adminLogin() {
+    const password = prompt("Enter Admin Password");
+
+    if (password === "admin123") {
+      window.location.href = "admin.html";
+    } else {
+      alert("Wrong password");
+    }
+  }
+</script>
+
 </body>
 </html>
+
+
 
 
 
