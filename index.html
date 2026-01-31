@@ -359,14 +359,17 @@ target="_blank">
 -->
 
 <script>
+<script>
+/* ===== ADMIN CONFIG ===== */
+const ADMIN_PASSWORD = "Ganesha41@"; // 🔐 change this
 let adminMode = false;
-const ADMIN_PASSWORD = "Ganesha41@"; // 🔐 change if you want
 
+/* ===== ADMIN TOGGLE ===== */
 function toggleAdmin() {
   if (!adminMode) {
     const pass = prompt("Enter Admin Password:");
     if (pass !== ADMIN_PASSWORD) {
-      alert("❌ Wrong Password");
+      alert("❌ Wrong password");
       return;
     }
     adminMode = true;
@@ -377,20 +380,46 @@ function toggleAdmin() {
   }
 }
 
+/* ===== SAVE SEATS ===== */
+function saveSeatStatus() {
+  const data = {};
+  document.querySelectorAll(".seat").forEach(seat => {
+    data[seat.innerText] = seat.classList.contains("vacant")
+      ? "vacant"
+      : "occupied";
+  });
+  localStorage.setItem("seatStatus", JSON.stringify(data));
+}
+
+/* ===== LOAD SEATS ===== */
+function loadSeatStatus() {
+  const data = JSON.parse(localStorage.getItem("seatStatus"));
+  if (!data) return;
+
+  document.querySelectorAll(".seat").forEach(seat => {
+    const status = data[seat.innerText];
+    if (status) {
+      seat.classList.remove("vacant", "occupied");
+      seat.classList.add(status);
+    }
+  });
+}
+
+/* ===== SEAT CLICK HANDLER ===== */
 document.addEventListener("click", function (e) {
   if (!adminMode) return;
 
   if (e.target.classList.contains("seat")) {
-    if (e.target.classList.contains("vacant")) {
-      e.target.classList.remove("vacant");
-      e.target.classList.add("occupied");
-    } else {
-      e.target.classList.remove("occupied");
-      e.target.classList.add("vacant");
-    }
+    e.target.classList.toggle("vacant");
+    e.target.classList.toggle("occupied");
+    saveSeatStatus();
   }
 });
+
+/* ===== LOAD ON PAGE START ===== */
+window.onload = loadSeatStatus;
 </script>
+
 
 </script>
 <footer>
@@ -430,6 +459,7 @@ document.addEventListener("click", function (e) {
 
 </body>
 </html>
+
 
 
 
