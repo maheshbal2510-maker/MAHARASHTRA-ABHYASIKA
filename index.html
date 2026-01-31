@@ -359,15 +359,39 @@ target="_blank">
 -->
 
 <script>
-  function adminLogin() {
-    const password = prompt("Enter Admin Password");
+let adminMode = false;
+const ADMIN_PASSWORD = "Ganesha41@"; // 🔐 change if you want
 
-    if (password === "admin123") {
-      window.location.href = "admin.html";
+function toggleAdmin() {
+  if (!adminMode) {
+    const pass = prompt("Enter Admin Password:");
+    if (pass !== ADMIN_PASSWORD) {
+      alert("❌ Wrong Password");
+      return;
+    }
+    adminMode = true;
+    alert("✅ Admin Mode ON");
+  } else {
+    adminMode = false;
+    alert("🔒 Admin Mode OFF");
+  }
+}
+
+document.addEventListener("click", function (e) {
+  if (!adminMode) return;
+
+  if (e.target.classList.contains("seat")) {
+    if (e.target.classList.contains("vacant")) {
+      e.target.classList.remove("vacant");
+      e.target.classList.add("occupied");
     } else {
-      alert("Wrong password");
+      e.target.classList.remove("occupied");
+      e.target.classList.add("vacant");
     }
   }
+});
+</script>
+
 </script>
 <footer>
   © 2026 MAHARASHTRA ABHYASIKA  
@@ -406,6 +430,7 @@ target="_blank">
 
 </body>
 </html>
+
 
 
 
