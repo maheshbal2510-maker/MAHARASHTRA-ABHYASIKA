@@ -34,6 +34,30 @@ header p {
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+/* ===== SEAT GRID ===== */
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.seat {
+  padding: 12px 0;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+.seat.vacant {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.seat.occupied {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
 
 
 
@@ -285,6 +309,7 @@ target="_blank">
 
 </body>
 </html>
+
 
 
 
