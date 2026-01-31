@@ -173,8 +173,90 @@ footer {
   Hurry Up Aspirents-For booking, contact admin.
   </p>
 </div>
-<div class="card">
+<div class="card"> <button class="button" onclick="toggleAdmin()">🔒 Admin Toggle</button>
+
   <h2>Live Seat Availability (1 – 75)</h2>
+<!-- Seat Grid -->
+<div class="seat-grid">
+
+  <!-- Seats 1–75 -->
+  <div class="seat vacant">Seat 1</div>
+  <div class="seat occupied">Seat 2</div>
+  <div class="seat vacant">Seat 3</div>
+  <div class="seat vacant">Seat 4</div>
+  <div class="seat occupied">Seat 5</div>
+<div class="seat vacant">Seat 6</div>
+  <div class="seat occupied">Seat 7</div>
+  <div class="seat vacant">Seat 8</div>
+  <div class="seat occupied">Seat 9</div>
+  <div class="seat vacant">Seat 10</div>
+  <div class="seat occupied">Seat 11</div>
+  <div class="seat vacant">Seat 12</div>
+  <div class="seat occupied">Seat 13</div>
+  <div class="seat vacant">Seat 14</div>
+  <div class="seat occupied">Seat 15</div>
+  <div class="seat vacant">Seat 16</div>
+  <div class="seat occupied">Seat 17</div>
+  <div class="seat vacant">Seat 18</div>
+  <div class="seat occupied">Seat 19</div>
+  <div class="seat vacant">Seat 20</div>
+  <div class="seat occupied">Seat 21</div>
+  <div class="seat vacant">Seat 22</div>
+  <div class="seat occupied">Seat 23</div>
+  <div class="seat vacant">Seat 24</div>
+  <div class="seat occupied">Seat 25</div>
+  <div class="seat vacant">Seat 26</div>
+  <div class="seat occupied">Seat 27</div>
+  <div class="seat vacant">Seat 28</div>
+  <div class="seat occupied">Seat 29</div>
+  <div class="seat vacant">Seat 30</div>
+  <div class="seat occupied">Seat 31</div>
+  <div class="seat vacant">Seat 32</div>
+  <div class="seat occupied">Seat 33</div>
+  <div class="seat vacant">Seat 34</div>
+  <div class="seat occupied">Seat 35</div>
+  <div class="seat vacant">Seat 36</div>
+  <div class="seat occupied">Seat 37</div>
+  <div class="seat vacant">Seat 38</div>
+  <div class="seat occupied">Seat 39</div>
+  <div class="seat vacant">Seat 40</div>
+  <div class="seat occupied">Seat 41</div>
+  <div class="seat vacant">Seat 42</div>
+  <div class="seat occupied">Seat 43</div>
+  <div class="seat occupied">Seat 44</div>
+  <div class="seat vacant">Seat 45</div>
+  <div class="seat occupied">Seat 46</div>
+  <div class="seat vacant">Seat 47</div>
+  <div class="seat occupied">Seat 48</div>
+  <div class="seat vacant">Seat 49</div>
+  <div class="seat occupied">Seat 50</div>
+  <div class="seat vacant">Seat 51</div>
+  <div class="seat occupied">Seat 52</div>
+  <div class="seat vacant">Seat 53</div>
+  <div class="seat occupied">Seat 54</div>
+  <div class="seat vacant">Seat 55</div>
+  <div class="seat occupied">Seat 56</div>
+  <div class="seat vacant">Seat 57</div>
+  <div class="seat occupied">Seat 58</div>
+  <div class="seat vacant">Seat 59</div>
+  <div class="seat occupied">Seat 60</div>
+  <div class="seat vacant">Seat 61</div>
+  <div class="seat occupied">Seat 62</div>
+  <div class="seat vacant">Seat 63</div>
+  <div class="seat occupied">Seat 64</div>
+  <div class="seat vacant">Seat 65</div>
+  <div class="seat occupied">Seat 66</div>
+  <div class="seat vacant">Seat 67</div>
+  <div class="seat occupied">Seat 68</div>
+  <div class="seat vacant">Seat 69</div>
+  <div class="seat occupied">Seat 70</div>
+  <div class="seat vacant">Seat 71</div>
+  <div class="seat occupied">Seat 72</div>
+  <div class="seat vacant">Seat 73</div>
+  <div class="seat occupied">Seat 74</div>
+  <div class="seat vacant">Seat 75</div>
+  
+</div>
 
   <iframe
     src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRy68mr3uBdgl3FTbY5C9SbEmNbHX8dFHtjuGzfghssm2aaE6HN6CA0pOThha83fFdTKYDuExPiWMPO/pubhtml"
@@ -306,9 +388,32 @@ target="_blank">
 </div>
 
 </footer>
+<script>
+  let adminMode = false;
+
+  function toggleAdmin() {
+    adminMode = !adminMode;
+    alert(adminMode ? "Admin Mode ON" : "Admin Mode OFF");
+  }
+
+  document.addEventListener("click", function (e) {
+    if (!adminMode) return;
+
+    if (e.target.classList.contains("seat")) {
+      if (e.target.classList.contains("vacant")) {
+        e.target.classList.remove("vacant");
+        e.target.classList.add("occupied");
+      } else {
+        e.target.classList.remove("occupied");
+        e.target.classList.add("vacant");
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
